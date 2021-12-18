@@ -29,7 +29,7 @@ import Photos
 
 class ZLImageNavController: UINavigationController {
 
-    var isSelectedOriginal: Bool = false
+    var isSelectedOriginal: Bool = true
     
     var arrSelectedModels: [ZLPhotoModel] = []
     
