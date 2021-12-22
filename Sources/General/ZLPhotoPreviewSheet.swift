@@ -93,7 +93,7 @@ public class ZLPhotoPreviewSheet: UIView {
     @objc public var selectImageRequestErrorBlock: ( ([PHAsset], [Int]) -> Void )?
     
     @objc public var cancelBlock: ( () -> Void )?
-    
+    public var showHUD: (() -> Void)?
     deinit {
         zl_debugPrint("ZLPhotoPreviewSheet deinit")
     }
@@ -533,6 +533,10 @@ public class ZLPhotoPreviewSheet: UIView {
             timeout = true
             showAlertView(localLanguageTextValue(.timeout), viewController ?? self?.sender)
             self?.fetchImageQueue.cancelAllOperations()
+        }
+        
+        if let hudShow = showHUD {
+            hudShow()
         }
         
         hud.show(timeout: ZLPhotoConfiguration.default().timeout)
