@@ -202,7 +202,8 @@ class ZLPhotoPreviewController: UIViewController {
         let originBtnW = originTitle.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width + 30
         let originBtnMaxW = min(btnMaxWidth, originBtnW)
         self.originalBtn.frame = CGRect(x: (self.bottomView.bounds.width - originBtnMaxW) / 2 - 5, y: btnY, width: originBtnMaxW, height: btnH)
-        
+        self.originalBtn.isSelected = true
+        self.originalBtn.isHidden = true
         let selCount = (self.navigationController as? ZLImageNavController)?.arrSelectedModels.count ?? 0
         var doneTitle = localLanguageTextValue(.done)
         if selCount > 0 {
